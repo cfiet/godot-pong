@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://game.gd" type="Script" id=1]
+[ext_resource path="res://ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://paddle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://wall.tscn" type="PackedScene" id=4]
+
+[node name="game" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="ball" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 640, 460 )
+mass = 0.01
+friction = 0.0
+bounce = 1.0
+gravity_scale = 0.0
+
+[node name="rightPaddle" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 40, 460 )
+transform/scale = Vector2( 1, 1.5 )
+
+[node name="leftPaddle" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1240, 460 )
+transform/rot = 180.0
+transform/scale = Vector2( 1, 1.5 )
+
+[node name="topWall" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 640, -20 )
+transform/scale = Vector2( 70, 2 )
+friction = 0.0
+bounce = 1.0
+
+[node name="bottomWall" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 640, 940 )
+transform/scale = Vector2( 70, 2 )
+friction = 0.0
+bounce = 1.0
+
+[node name="leftTerminate" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -20, 460 )
+transform/scale = Vector2( 2, 46 )
+
+[node name="rightTerminate" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1300, 460 )
+transform/scale = Vector2( 2, 46 )
+
+
